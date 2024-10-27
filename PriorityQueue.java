@@ -65,7 +65,7 @@ public class PriorityQueue<T extends Comparable<T>> {
     // Clears everything inside the heap, O(n)
     public void clear() {
         for (int i = 0; i < heapCapacity; i++) {
-            heap.set(i, null)
+            heap.set(i, null);
         }
         heapSize = 0;
         map.clear();
@@ -109,7 +109,7 @@ public class PriorityQueue<T extends Comparable<T>> {
     // Adds an element to the priority queue, the
     // element must not be null, O(log(n))
     public void add(T elem) {
-        if (elem == null) return false;
+        if (elem == null) throw new IllegalArgumentException();
         if (heapSize < heapCapacity) {
             heap.set(heapSize, elem);
         } else {
@@ -140,7 +140,7 @@ public class PriorityQueue<T extends Comparable<T>> {
         // root and while we're less than our parent
         while (k > 0 && less(k, parent)) {
             // Exchange k with the parent
-            swap(parent, k)
+            swap(parent, k);
             k = parent;
 
             // Grab the index of the parent parent node WRT to k
@@ -241,7 +241,7 @@ public class PriorityQueue<T extends Comparable<T>> {
         if (k >= heapSize) return true;
 
         int left = 2 * k + 1;
-        int right = w * k + 2;
+        int right = 2 * k + 2;
 
         // Make sure that the current node k is less than
         // both of its children left, and right, if they exist
