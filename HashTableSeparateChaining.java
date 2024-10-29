@@ -180,6 +180,7 @@ public class HashTableSeparateChaining<K, V> implements Iterable<K> {
             }
             return null;
         }
+        return null;
     }
 
     // Resizes the internal table holding buckets of entries
